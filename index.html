@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AImagica - ปลดปล่อยจินตนาการของคุณ</title>
+        <link href="./css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <header>
+            <h1 id="logo-home">AImagica</h1>
+            <nav>
+                <a href="#" id="nav-home">HOME</a>
+                <a href="#" id="nav-generate">GENERATE</a>
+            </nav>
+        </header>
+
+        <main id="content-home">
+            <section class="hero">
+                <h2>ปลดปล่อยจินตนาการของคุณ</h2>
+                <button id="start-create-btn">เริ่มสร้างสรรค์</button>
+            </section>
+            <section class="info">
+                <h3>ArtBoardAI คืออะไร?</h3>
+                <p>ArtBoardAI คือแพลตฟอร์มเว็บที่ให้ทุกคนสร้างสรรค์งานศิลปะได้ง่าย ๆ ด้วย AI...</p>
+            </section>
+        </main>
+
+        <main id="content-generate" class="hidden">
+            <div class="generate-area">
+                <textarea id="prompt-input" placeholder="พิมพ์คำสั่ง Prompt ที่คุณต้องการ..."></textarea>
+
+                <div class="style-selection">
+                    <h4>Style Selection (เลือกสไตล์)</h4>
+                    <div class="styles">
+                        <button class="style-btn active" data-style="Realistic">Realistic</button>
+                        <button class="style-btn" data-style="Abstract">Abstract</button>
+                        <button class="style-btn" data-style="Cartoon">Cartoon</button>
+                        </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="generate-idea-btn">Generate Idea (ใช้ Gemini)</button>
+                    <button id="generate-art-btn" class="primary-btn">Generate Art (ใช้ Imagen)</button>
+                </div>
+            </div>
+
+            <section class="result-area">
+                <h4>ภาพจากเนื้อตามที่สร้าง</h4>
+                <div id="image-output">
+                    <p id="placeholder-text">ภาพที่สร้างจะแสดงที่นี่...</p>
+                    </div>
+                <p id="status-message" class="hidden"></p>
+            </section>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
