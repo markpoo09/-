@@ -3,27 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AImagica - ปลดปล่อยจินตนาการของคุณ</title>
+        <title>AImagica</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&display=swap">
         <link href="./css/styles.css" rel="stylesheet">
     </head>
     <body>
-
         <header>
-            <h1 id="logo-home">AImagica</h1>
+            <h1 id="logo-home">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    AImagica
+                </a>
+            </h1>
             <nav>
-                <a href="#" id="nav-home">HOME</a>
-                <a href="#" id="nav-generate">GENERATE</a>
+                <a href="index.html" id="nav-home" class="nav-link active">HOME</a>
+                <a href="#" id="nav-generate" class="nav-link">GENERATE</a>
             </nav>
         </header>
 
         <main id="content-home">
             <section class="hero">
-                <h2>ปลดปล่อยจินตนาการของคุณ</h2>
-                <button id="start-create-btn">เริ่มสร้างสรรค์</button>
+                <img src="./Image/Image00.png" alt="" class="hero-image bounce-in">
+                <h2 class="fade-in-up">ปล่อยปล่อยจินตนาการของคุณ</h2>
+                <button id="start-create-btn" class="pulse">เริ่มสร้างสรรค์</button>
             </section>
-            <section class="info">
-                <h3>ArtBoardAI คืออะไร?</h3>
-                <p>ArtBoardAI คือแพลตฟอร์มเว็บที่ให้ทุกคนสร้างสรรค์งานศิลปะได้ง่าย ๆ ด้วย AI...</p>
+        </main>
+
+        <main id="content-about">
+            <section>
+                <h3 style="text-align: center; font-family: 'Noto Sans Thai'; margin-top: 20px;">AImagica คืออะไร?</h3>
+                <p style="text-align: center; font-family: 'Noto Sans Thai'; max-width: 800px; margin: 0 auto; padding: 0 20px;">
+                    AImagica เป็นแพลตฟอร์มที่ใช้ปัญญาประดิษฐ์ในการสร้างภาพจากคำสั่ง Prompt ที่คุณพิมพ์เข้ามา ไม่ว่าคุณจะต้องการภาพสไตล์เรียลลิสติก, การ์ตูน, หรือแนวแอบสแตรกต์ เรามีเครื่องมือที่ช่วยให้คุณสร้างสรรค์ผลงานได้อย่างง่ายดายและรวดเร็ว
+                </p>
+                <div class="container-box">
+                    <div class="box">
+                        <h4>อยากได้รูปภาพมาใช้กับการเรียน?</h4>
+                    </div>
+                    <div class="box">
+                        <h4>คิดออกจะวาดยังไงดี?</h4>
+                    </div>
+                    <div class="box">
+                        <h4>ไม่มีรูปที่ถูกใจ?</h4>
+                    </div>
+                </div>
+                <p class="container-recommend">
+                    ไม่ต้องกังวลอีกต่อไป! แค่พิมพ์คำสั่ง Prompt ที่คุณต้องการ แล้วเลือกสไตล์ที่ชอบ จากนั้นกดปุ่ม "Generate Art" <br>
+                    เพื่อสร้างภาพที่ตรงกับจินตนาการของคุณ AImagica จะเป็นเครื่องมือที่ช่วยให้ทุกคนสร้างสรรค์ผลงานได้อย่างง่ายดาย
+                </p>
             </section>
         </main>
 
@@ -37,7 +64,10 @@
                         <button class="style-btn active" data-style="Realistic">Realistic</button>
                         <button class="style-btn" data-style="Abstract">Abstract</button>
                         <button class="style-btn" data-style="Cartoon">Cartoon</button>
-                        </div>
+                        <button class="style-btn" data-style="Fantasy">Oil Painting</button>
+                        <button class="style-btn" data-style="Anime">Anime</button>
+                        <button class="style-btn" data-style="Pixel Art">Watercolor</button>
+                    </div>
                 </div>
 
                 <div class="action-buttons">
@@ -50,10 +80,14 @@
                 <h4>ภาพจากเนื้อตามที่สร้าง</h4>
                 <div id="image-output">
                     <p id="placeholder-text">ภาพที่สร้างจะแสดงที่นี่...</p>
-                    </div>
+                </div>
                 <p id="status-message" class="hidden"></p>
             </section>
         </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 AImagica</p>
+        </footer>
 
         <script src="script.js"></script>
     </body>

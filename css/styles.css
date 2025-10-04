@@ -2,12 +2,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background:radial-gradient(circle at 20% 20%, #e8ffb3, #ffffff, #e6a26b);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 header {
     background-color: #ffffff;
-    padding: 15px 30px;
+    padding: 10px 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,45 +21,207 @@ nav a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Active navigation indicator */
+nav a.active {
+    color: #FF5E00;
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #FF5E00, #FF0D00);
+    border-radius: 2px;
+    animation: slideIn 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF5E00;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 main {
     padding: 40px;
-    max-width: 900px;
+    width: 900px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 40px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#content-about {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .hidden {
     display: none;
 }
 
-/* Home Page Styles */
+/* Hero Section with Animations */
 .hero {
     text-align: center;
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 .hero h2 {
     font-size: 2.5em;
     color: #333;
+    font-family: "IBM Plex Sans Thai Looped";
+    opacity: 0;
+}
+
+.hero-image {
+    max-width: 70%;
+    height: auto;
+    opacity: 0;
+}
+
+/* Bounce In Animation */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bounce-in {
+    animation: bounceIn 1s ease forwards;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+}
+
+/* Pulse Animation for Button */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 13, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(255, 13, 0, 0.5);
+    }
 }
 
 #start-create-btn {
-    background-color: #888;
+    background-color: #FF0D00;
     color: white;
-    padding: 10px 25px;
+    padding: 15px 70px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
     margin-top: 20px;
+    font-family: "Noto Sans Thai";
+    transition: all 0.3s ease;
 }
 
-/* Generate Page Styles */
+#start-create-btn.pulse {
+    animation: pulse 10s infinite;
+}
+
+#start-create-btn:hover {
+    background-color: #FF5E00;
+    transform: translateY(-2px);
+}
+
+/* Floating Elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.box {
+    background-color: #FF5E00;
+    border: 2px solid white;
+    padding: 0 2px;
+    border-radius: 8px;
+    flex: 1 1 200px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+    /* animation: float 5s ease-in-out infinite; */
+}
+
+.box:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.box:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.box:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* .box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 94, 0, 0.4);
+} */
+
+.container-recommend {
+    margin-top: 50px;
+    font-family: "Noto Sans Thai";
+    margin-bottom: 50px;
+    text-align: center;
+}
+
 #prompt-input {
     width: 100%;
     min-height: 100px;
@@ -69,12 +233,18 @@ main {
 }
 
 .styles button {
-    padding: 8px 15px;
+    padding: 15px 35px;
     margin: 5px;
     border: 1px solid #ccc;
     background-color: #fff;
     cursor: pointer;
     border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.styles button:hover {
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .styles button.active {
@@ -89,17 +259,30 @@ main {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
+
+/* .action-buttons button:hover {
+    transform: translateY(-2px);
+} */
 
 #generate-idea-btn {
     background-color: #f0f0f0;
     color: #333;
 }
 
+#generate-idea-btn:hover {
+    background-color: #e0e0e0;
+}
+
 #generate-art-btn {
     background-color: #5cb85c;
     color: white;
     margin-left: 10px;
+}
+
+#generate-art-btn:hover {
+    background-color: #4cae4c;
 }
 
 .result-area {
@@ -119,9 +302,18 @@ main {
 #image-output img {
     max-width: 100%;
     max-height: 300px;
-    /* สไตล์ของรูปภาพที่สร้างขึ้น */
 }
 
 #logo-home {
     cursor: pointer;
+    font-family: Aclonica;
+    color: #000000;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    margin-top: 40px;
 }
