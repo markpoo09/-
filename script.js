@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        statusMessage.textContent = 'กำลังสร้างสรรค์ภาพ... (ใช้ Imagen 3 ความละเอียด 512x512px เพื่อประหยัด)';
+        statusMessage.textContent = 'กำลังสร้างสรรค์ภาพ... (ใช้ Stable Diffusion XL ผ่าน Hugging Face - อาจใช้เวลา 20-60 วินาที)';
         statusMessage.classList.remove('hidden');
         imageOutput.innerHTML = '';
 
