@@ -34,7 +34,7 @@
             <section>
                 <h3 style="text-align: center; font-family: 'Noto Sans Thai'; margin-top: 20px;">AImagica คืออะไร?</h3>
                 <p style="text-align: center; font-family: 'Noto Sans Thai'; max-width: 800px; margin: 0 auto; padding: 0 20px;">
-                    AImagica เป็นแพลตฟอร์มที่ใช้ปัญญาประดิษฐ์ในการสร้างภาพจากคำสั่ง Prompt ที่คุณพิมพ์เข้ามา ไม่ว่าคุณจะต้องการภาพสไตล์เรียลลิสติก, การ์ตูน, หรือแนวแอบสแตรกต์ เรามีเครื่องมือที่ช่วยให้คุณสร้างสรรค์ผลงานได้อย่างง่ายดายและรวดเร็ว
+                    AImagica เป็นแพลตฟอร์มที่ใช้ Stable Diffusion 2.1 ผ่าน Hugging Face API ในการสร้างภาพจากคำสั่ง Prompt ที่คุณพิมพ์เข้ามา ไม่ว่าคุณจะต้องการภาพสไตล์เรียลลิสติก การ์ตูน oil painting หรือ watercolor เรามีเครื่องมือที่ช่วยให้คุณสร้างสรรค์ผลงานได้อย่างง่ายดายและรวดเร็ว
                 </p>
                 <div class="container-box">
                     <div class="box">
@@ -49,14 +49,14 @@
                 </div>
                 <p class="container-recommend">
                     ไม่ต้องกังวลอีกต่อไป! แค่พิมพ์คำสั่ง Prompt ที่คุณต้องการ แล้วเลือกสไตล์ที่ชอบ จากนั้นกดปุ่ม "Generate Art" <br>
-                    เพื่อสร้างภาพที่ตรงกับจินตนาการของคุณ AImagica จะเป็นเครื่องมือที่ช่วยให้ทุกคนสร้างสรรค์ผลงานได้อย่างง่ายดาย
+                    เพื่อสร้างภาพที่ตรงกับจินตนาการของคุณ AImagica ใช้ Stable Diffusion 2.1 ที่จะช่วยให้ทุกคนสร้างสรรค์ผลงานได้อย่างง่ายดาย
                 </p>
             </section>
         </main>
 
         <main id="content-generate" class="hidden">
             <div class="generate-area">
-                <textarea id="prompt-input" placeholder="พิมพ์คำสั่ง Prompt ที่คุณต้องการ..."></textarea>
+                <textarea id="prompt-input" placeholder="พิมพ์คำสั่ง Prompt ที่คุณต้องการ... (เช่น A beautiful sunset over mountains)"></textarea>
 
                 <div class="style-selection">
                     <h4>Style Selection (เลือกสไตล์)</h4>
@@ -64,20 +64,20 @@
                         <button class="style-btn active" data-style="Realistic">Realistic</button>
                         <button class="style-btn" data-style="Abstract">Abstract</button>
                         <button class="style-btn" data-style="Cartoon">Cartoon</button>
-                        <button class="style-btn" data-style="Fantasy">Oil Painting</button>
-                        <button class="style-btn" data-style="Anime">Anime</button>
-                        <button class="style-btn" data-style="Pixel Art">Watercolor</button>
+                        <button class="style-btn" data-style="Oil Painting">Oil Painting</button>
+                        <button class="style-btn" data-style="Watercolor">Watercolor</button>
+                        <button class="style-btn" data-style="Digital Art">Digital Art</button>
                     </div>
                 </div>
 
                 <div class="action-buttons">
-                    <button id="generate-idea-btn">Generate Idea (ใช้ Gemini)</button>
-                    <button id="generate-art-btn" class="primary-btn">Generate Art (ใช้ Imagen)</button>
+                    <button id="generate-idea-btn">Enhance Prompt (ปรับปรุง Prompt)</button>
+                    <button id="generate-art-btn" class="primary-btn">Generate Art (สร้างภาพ)</button>
                 </div>
             </div>
 
             <section class="result-area">
-                <h4>ภาพจากเนื้อตามที่สร้าง</h4>
+                <h4>ภาพที่สร้างจาก Stable Diffusion 2.1</h4>
                 <div id="image-output">
                     <p id="placeholder-text">ภาพที่สร้างจะแสดงที่นี่...</p>
                 </div>
@@ -86,7 +86,7 @@
         </main>
 
         <footer class="footer">
-            <p>&copy; 2024 AImagica</p>
+            <p>&copy; 2024 AImagica - Powered by Stable Diffusion 2.1</p>
         </footer>
 
         <script src="script.js"></script>
